@@ -13,11 +13,11 @@ development:
   <<: *default
   database: <%= ENV['DB_DATABASE'] || 'rails_store_development' %>
 
-# test:
-#   <<: *default
-#   database: <%= ENV['DB_DATABASE'] || 'rails_store_test' %>
+test:
+  <<: *default
+  database: <%= ENV['DB_DATABASE'] || 'rails_store_test' %>
 
-# production:
-#   <<: *default
-#   database: rails_store_production
-#   password: <%= ENV['RS_DATABASE_PASSWORD'] %>
+production:
+  <<: *default
+  database: rails_store_production
+  password: <%= ENV['RS_DATABASE_PASSWORD'] %>

@@ -1,12 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe Article, type: :model do
-  # it "has a valid factory" do
-    # expect(article).to be_valid
-  # end
+  describe '.associations' do
+    it { should have_many(:comments) }
+  end
 
-  describe Article do
-    it { is_expected.to validate_presence_of(:title) }
-    it { is_expected.to validate_presence_of(:body) }
+  describe '.validates' do
+    let!(:article) { create(:article) }
+
+    specify do
+      expect(article).to validate_presence_of(:title)
+      expect(article).to validate_presence_of(:body)
+      expect(article).to validate_length_of(:body).is_at_least(10)
+    end
   end
 end

@@ -33,13 +33,13 @@ RSpec.describe CommentsController, type: :controller do
     context 'failure' do
       let!(:body) { '' }
 
-        specify do
-          expect do
-            post :create, params: params
-          end.to_not change { Comment.count }
-          expect(response).to redirect_to article_path(article)
-          expect(flash[:error]).to eq nil
-        end
+      specify do
+        expect do
+          post :create, params: params
+        end.to_not change { Comment.count }
+        expect(response).to redirect_to article_path(article)
+        expect(flash[:error]).to eq nil
+      end
     end
   end
 
